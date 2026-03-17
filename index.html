@@ -62,17 +62,14 @@ input {
 
 <script>
 const quiz = [
-  { q: "Which command lists files?", a: ["ls", "touch", "mkdir", "rm"], correct: "ls" },
-  { q: "Which command creates a file?", a: ["touch", "cp", "mv", "ls"], correct: "touch" },
-  { q: "Which command creates a folder?", a: ["mkdir", "rm", "ls", "echo"], correct: "mkdir" },
-  { q: "Which command deletes a file?", a: ["rm", "cp", "mv", "touch"], correct: "rm" },
-  { q: "Which command copies a file?", a: ["cp", "mv", "rm", "ls"], correct: "cp" },
-  { q: "Which command moves or renames a file?", a: ["mv", "cp", "ls", "echo"], correct: "mv" },
-  { q: "Which command prints text?", a: ["echo", "ls", "rm", "mkdir"], correct: "echo" },
-  { q: "Which command generates random numbers?", a: ["echo $RANDOM", "ls", "touch", "cp"], correct: "echo $RANDOM" },
-  { q: "Which command clears the screen?", a: ["clear", "rm", "ls", "mv"], correct: "clear" },
-  { q: "Which command shows random encrypted-like data?", a: ["cat /dev/urandom", "ls", "echo", "mkdir"], correct: "cat /dev/urandom" }
-];
+  { q: "Which command lists files?", a: shuffle(["ls", "touch", "mkdir", "rm"]), correct: "ls" },
+  { q: "Which command creates a file?", a: shuffle(["touch", "cp", "mv", "ls"]), correct: "touch" },
+  { q: "Which command creates a folder?", a: shuffle(["mkdir", "rm", "ls", "echo"]), correct: "mkdir" },
+  { q: "Which command deletes a file?", a: shuffle(["rm", "cp", "mv", "touch"]), correct: "rm" },
+  { q: "Which command copies a file?", a: shuffle(["cp", "mv", "rm", "ls"]), correct: "cp" },
+  { q: "Which command moves or renames a file?", a: shuffle(["mv", "cp", "ls", "echo"]), correct: "mv" },
+  { q: "Which command prints text?", a: shuffle(["echo", "ls", "rm", "mkdir"]), correct: "echo" },
+  { q: "Which command generates random numbers?", a: shuffle(["echo $RANDOM", "ls", "touch", "cp"]
 
 let current = 0;
 let score = 0;
