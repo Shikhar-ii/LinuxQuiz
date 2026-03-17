@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linux Commands Quiz</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background: #22c55e;
+  color: black;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #16a34a;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>💻 Linux Quiz</h1>
+  <h3 id="question"></h3>
+  <div id="answers"></div>
+  <p id="score"></p>
+</div>
+
+<script>
+const quiz = [
+  {
+    q: "Which command lists files?",
+    a: ["ls", "touch", "mkdir", "rm"],
+    correct: "ls"
+  },
+  {
+    q: "Which command creates a file?",
+    a: ["touch", "cp", "mv", "ls"],
+    correct: "touch"
+  },
+  {
+    q: "Which command creates a folder?",
+    a: ["mkdir", "rm", "ls", "echo"],
+    correct: "mkdir"
+  },
+  {
+    q: "Which command deletes a file?",
+    a: ["rm", "cp", "mv", "touch"],
+    correct: "rm"
+  },
+  {
+    q: "Which command copies a file?",
+    a: ["cp", "mv", "rm", "ls"],
+    correct: "cp"
+  },
+  {
+    q: "Which command moves or renames a file?",
+    a: ["mv", "cp", "ls", "echo"],
+    correct: "mv"
+  },
+  {
+    q: "Which command prints text?",
+    a: ["echo", "ls", "rm", "mkdir"],
+    correct: "echo"
+  },
+  {
+    q: "Which command generates random numbers?",
+    a: ["echo $RANDOM", "ls", "touch", "cp"],
+    correct: "echo $RANDOM"
+  },
+  {
+    q: "Which command clears the screen?",
+    a: ["clear", "rm", "ls", "mv"],
+    correct: "clear"
+  },
+  {
+    q: "Which command shows random encrypted-like data?",
+    a: ["cat /dev/urandom", "ls", "echo", "mkdir"],
+    correct: "cat /dev/urandom"
+  }
+];
+
+let current = 0;
+let score = 0;
+
+function loadQuestion() {
+  if (current >= quiz.length) {
+    document.querySelector(".container").innerHTML = `<h1>🎉 Finished!</h1><h2>Your Score: ${score}/10</h2>`;
+    return;
+  }
+
+  document.getElementById("question").innerText = quiz[current].q;
+  const answersDiv = document.getElementById("answers");
+  answersDiv.innerHTML = "";
+
+  quiz[current].a.forEach(ans => {
+    const btn = document.createElement("button");
+    btn.innerText = ans;
+    btn.onclick = () => {
+      if (ans === quiz[current].correct) score++;
+      current++;
+      loadQuestion();
+    };
+    answersDiv.appendChild(btn);
+  });
+
+  document.getElementById("score").innerText = `Score: ${score}`;
+}
+
+loadQuestion();
+</script>
+
+</body>
+</html>
