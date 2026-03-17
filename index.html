@@ -69,7 +69,15 @@ const quiz = [
   { q: "Which command copies a file?", a: shuffle(["cp", "mv", "rm", "ls"]), correct: "cp" },
   { q: "Which command moves or renames a file?", a: shuffle(["mv", "cp", "ls", "echo"]), correct: "mv" },
   { q: "Which command prints text?", a: shuffle(["echo", "ls", "rm", "mkdir"]), correct: "echo" },
-  { q: "Which command generates random numbers?", a: shuffle(["echo $RANDOM", "ls", "touch", "cp"]
+  { q: "Which command generates random numbers?", a: shuffle(["echo $RANDOM", "ls", "touch", "cp"]), correct: "echo $RANDOM" },
+  { q: "Which command clears the screen?", a: shuffle(["clear", "rm", "ls", "mv"]), correct: "clear" },
+  { q: "Which command shows random encrypted-like data?", a: shuffle(["cat /dev/urandom", "ls", "echo", "mkdir"]), correct: "cat /dev/urandom" }
+];
+
+// shuffle function to randomize options
+function shuffle(array) {
+  return array.sort(() => Math.random() - 0.5);
+}
 
 let current = 0;
 let score = 0;
